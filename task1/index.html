@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Отправить резюме</title>
+</head>
+<style>
+    .grecaptcha-badge{
+        right: unset;
+    }
+</style>
+<!--<script src="https://www.google.com/recaptcha/api.js"></script>-->
+<body>
+<h1>Отправить резюме</h1>
+<form action="handler.php" method="post" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Ваше имя">
+    <input type="email" name="email" placeholder="Ваш Email">
+    <input type="tel" name="phone" placeholder="Ваш телефон">
+    <input type="file" name="cv" placeholder="Резюме">
+    <input type="submit" class="g-recaptcha"
+           data-sitekey="63198549-a5f5-4a62-a6f4-9b393989dd2b"
+           data-callback='onSubmit'
+           data-action='submit'>
+</form>
+</body>
+<script>
+    function onSubmit(token) {
+        document.querySelector("form").submit();
+    }
+</script>
+</html>
